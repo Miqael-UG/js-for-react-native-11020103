@@ -9,7 +9,25 @@ const processArray = ([...nums]) => {
       newArray.push(triple);
     }
   }
-  console.log(newArray);
+  return newArray;
 };
 
-processArray([1, 2, 3, 4, 5]);
+const formatArrayStrings = ([...strings], [...array]) => {
+  let processedArray = processArray(array);
+  for (let i = 0; i <= strings.length - 1; i++) {
+    let string = strings[i];
+    let array = processedArray[i];
+
+    if (array % 2 === 0) {
+      strings[i] = string.toUpperCase();
+    } else {
+      strings[i] = string.toLowerCase();
+    }
+  }
+  return strings;
+};
+
+let numArray = processArray([1, 2, 3, 4, 5]);
+let randomArray = ["mango", "dog", "school", "train"];
+console.log(numArray);
+console.log(formatArrayStrings(randomArray, numArray));
